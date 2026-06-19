@@ -5,6 +5,7 @@ import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.datatransfer.StringSelection;
 import java.io.File;
+import Tool.RSA.SHA256withRSA;
 
 public class DigitalSignaturePanel extends JPanel {
 
