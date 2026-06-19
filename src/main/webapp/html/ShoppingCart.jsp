@@ -159,181 +159,7 @@
 %>
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
 <!--header-->
-<header class="header">
-    <div class="header-top">
-        <div class="logo-search">
-            <a href="/Project/index.html" class="logo">
-                <div class="logo-icon">📷</div>
-                <div class="logo-text">
-                    <div class="logo-main">GROUP11</div>
-                    <div class="logo-sub">Shop máy ảnh uy tín nhất Việt Nam</div>
-                </div>
-            </a>
-
-            <div class="search-box">
-                <input type="text" placeholder="Tìm kiếm sản phẩm...">
-                <button><i class="fas fa-search"></i></button>
-            </div>
-        </div>
-
-        <div class="header-right">
-            <div class="hotline">
-                <div class="hotline-label">HOTLINE: 0903.148-222</div>
-                <div class="header-links">
-                    <a href="#">MUA HÀNG</a> -
-                    <a href="#">TRẢ GÓP</a> -
-                    <a href="#">BẢO HÀNH</a>
-                </div>
-            </div>
-            <a href="/Project/Login/login.html">
-                <div class="user-icon">
-                    <i class="fas fa-key"></i>
-                </div>
-            </a>
-            <a href="/Project/View%20order%20history/ViewOrderHistory.html">
-                <div class="user-icon">
-                    <i class="fas fa-user"></i>
-                </div>
-            </a>
-            <a href="/Project/GioHang/ShoppingCart.html">
-                <div class="logo-icon">🛒</div>
-            </a>
-        </div>
-    </div>
-
-
-</header>
-<nav class="nav-menu">
-    <ul>
-        <li class="sub">
-            <a href="#" class="sub-item">
-                <i class="fas fa-camera"></i>
-                <span>MÁY ẢNH CANON</span>
-            </a>
-            <div class="null">
-                <ul class="sub-menu">
-                    <li><a href="/Project/Product/canon-dslr.html" class="nav-item" >MÁY ẢNH CANON DSLR</a></li>
-                    <li><a href="/Project/Product/canon-compact.html" class="nav-item" >MÁY ẢNH CANON COMPACT</a></li>
-                    <li><a href="/Project/Product/canon-mirrorless.html" class="nav-item" >MÁY ẢNH CANON MIRRORLESS</a></li>
-                    <li><a href="/Project/Product/canon-ongkinh.html" class="nav-item" >ỐNG KÍNH CANON</a></li>
-                </ul>
-            </div>
-        </li>
-    </ul>
-
-    <ul>
-        <li class="sub">
-            <a href="#" class="sub-item">
-                <i class="fas fa-camera"></i>
-                <span>MÁY ẢNH SONY</span>
-            </a>
-            <div class="null">
-                <ul class="sub-menu">
-                    <li><a href="/Project/Product/sony-compact.html" class="nav-item" >MÁY ẢNH SONY COMPACT</a></li>
-                    <li><a href="/Project/Product/sony-mirrorless.html" class="nav-item" >MÁY ẢNH SONY MIRRORLESS</a></li>
-                    <li><a href="/Project/Product/sony-ongkinh.html" class="nav-item" >ỐNG KÍNH SONY</a></li>
-                </ul>
-            </div>
-        </li>
-    </ul>
-
-    <ul>
-        <li class="sub">
-            <a href="#" class="sub-item">
-                <i class="fas fa-camera"></i>
-                <span>MÁY ẢNH NIKON</span>
-            </a>
-            <div class="null">
-                <ul class="sub-menu">
-                    <li><a href="/Project/Product/nikon-compact.html" class="nav-item">MÁY ẢNH NIKON COMPACT</a></li>
-                    <li><a href="/Project/Product/nikon-mirrorless.html" class="nav-item">MÁY ẢNH NIKON MIRRORLESS</a></li>
-                    <li><a href="/Project/Product/nikon-ongkinh.html" class="nav-item">ỐNG KÍNH NIKON</a></li>
-                </ul>
-            </div>
-        </li>
-    </ul>
-
-    <ul>
-        <li class="sub">
-            <a href="#" class="sub-item">
-                <i class="fas fa-camera"></i>
-                <span>MÁY ẢNH FUJIFILM</span>
-            </a>
-            <div class="null">
-                <ul class="sub-menu">
-                    <li><a href="#" class="nav-item">MÁY ẢNH FUJIFILM COMPACT</a></li>
-                    <li><a href="#" class="nav-item">MÁY ẢNH FUJIFILM MIRRORLESS</a></li>
-                    <li><a href="#" class="nav-item">ỐNG KÍNH FUJIFILM</a></li>
-                </ul>
-            </div>
-        </li>
-    </ul>
-
-    <ul>
-        <li class="sub">
-            <a href="#" class="sub-item">
-                <i class="fas fa-camera"></i>
-                <span>MÁY ẢNH HÃNG KHÁC</span>
-            </a>
-            <div class="null">
-                <ul class="sub-menu">
-                    <li><a href="#" class="nav-item">MÁY ẢNH LUMIX</a></li>
-                    <li><a href="#" class="nav-item">MÁY ẢNH LEICA</a></li>
-                    <li><a href="#" class="nav-item">MÁY ẢNH SIGMA</a></li>
-                </ul>
-            </div>
-        </li>
-    </ul>
-
-    <ul>
-        <li class="sub">
-            <a href="#" class="sub-item">
-                <i class="fas fa-glasses"></i>
-                <span>ỐNG KÍNH</span>
-            </a>
-            <div class="null">
-                <ul class="sub-menu">
-                    <li><a href="#" class="nav-item">ỐNG KÍNH CANON</a></li>
-                    <li><a href="#" class="nav-item">ỐNG KÍNH SONY</a></li>
-                    <li><a href="#" class="nav-item">ỐNG KÍNH NIKON</a></li>
-                    <li><a href="#" class="nav-item">ỐNG KÍNH FUJIFILM</a></li>
-                    <li><a href="#" class="nav-item">ỐNG KÍNH LUMIX</a></li>
-                    <li><a href="#" class="nav-item">ỐNG KÍNH LEICA</a></li>
-                    <li><a href="#" class="nav-item">ỐNG KÍNH DIGMA</a></li>
-
-                </ul>
-            </div>
-        </li>
-    </ul>
-
-    <ul>
-        <li class="sub">
-            <a href="#" class="sub-item">
-                <i class="fas fa-headphones"></i>
-                <span>PHỤ KIỆN MÁY ẢNH</span>
-            </a>
-            <div class="null">
-                <ul class="sub-menu">
-                    <li><a href="#" class="nav-item">BAO ĐỰNG MÁY ẢNH</a></li>
-                    <li><a href="#" class="nav-item">CHÂN MÁY ẢNH</a></li>
-                    <li><a href="#" class="nav-item">THẺ NHỚ MÁY ẢNH</a></li>
-                    <li><a href="#" class="nav-item">SẠC MÁY ẢNH</a></li>
-                    <li><a href="#" class="nav-item">TỦ CHỐNG ẨM</a></li>
-                    <li><a href="#" class="nav-item">ĐÈN CHỤP FLASH</a></li>
-                </ul>
-            </div>
-        </li>
-    </ul>
-    <ul>
-        <li class="sub">
-            <a href="/Project/Quan%20Ly%20User/quanlyuser.html" class="sub-item">
-                <i class="fas fa-camera"></i>
-                <span>QUẢN LÝ USER</span>
-            </a>
-        </li>
-    </ul>
-</nav>
-
+<jsp:include page="/common/header.jsp"/>
 <!--body-->
 
 <div class="container">
@@ -347,7 +173,7 @@
                     <div style="text-align: center; padding: 60px 0;">
                         <div style="font-size: 80px; color: #ddd; margin-bottom: 20px;">🛒</div>
                         <div style="font-size: 18px; color: #777; margin-bottom: 20px;">Giỏ hàng của bạn đang trống</div>
-                        <a href="<%= request.getContextPath() %>/list-products" style="display: inline-block; padding: 12px 24px; background-color: #ee4d2d; color: white; text-decoration: none; border-radius: 4px;">Mua sắm ngay</a>
+                        <a href="<%= request.getContextPath() %>/ListProduct" style="display: inline-block; padding: 12px 24px; background-color: #ee4d2d; color: white; text-decoration: none; border-radius: 4px;">Mua sắm ngay</a>
                     </div>
                 </c:when>
                 <c:otherwise>
@@ -401,11 +227,6 @@
                 <span id="shipping">30.000 ₫</span>
             </div>
 
-            <div class="summary-row">
-                <span>Tạm tính:</span>
-                <span id="subtotal"><%= cartTotalFormatted %></span>
-            </div>
-
             <div class="summary-row summary-total">
                 <span>Tổng cộng:</span>
                 <%
@@ -422,8 +243,8 @@
                 <button class="apply-promo" onclick="applyPromo()">Áp dụng</button>
             </div>
 
-            <button class="checkout-btn" onclick="window.location.href='checkout.jsp'">Tiến hành thanh toán</button>
-            <a href="<%= request.getContextPath() %>/list-products" class="continue-shopping">Tiếp tục mua sắm</a>
+            <button class="checkout-btn" onclick="window.location.href='${pageContext.request.contextPath}/PrepareCheckout'">Tiến hành thanh toán</button>
+            <a href="<%= request.getContextPath() %>/ListProduct" class="continue-shopping">Tiếp tục mua sắm</a>
         </div>
     </div>
 </div>

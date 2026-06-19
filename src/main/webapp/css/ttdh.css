@@ -8,11 +8,11 @@ body {
     background: linear-gradient(135deg,rgb(102, 126, 234) 0%, rgb(118, 75, 162) 100%);
     color: #fff;
     text-align: center;
-    padding: 30px 15px;
+    padding: 15px;
 }
 
 .checkout-header h1 {
-    font-size: 2rem;
+    font-size: 1.6rem;
     margin-bottom: 5px;
 }
 
@@ -160,6 +160,60 @@ body {
     text-align: center;
     padding: 15px;
     margin-top: 50px;
+}
+/* --- PHẦN THÊM CHO CHỮ KÝ ĐIỆN TỬ --- */
+.signature-section {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 2px dashed #ccc;
+}
+
+.signature-section h3 {
+    color: #d63384;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.copy-box {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.copy-box textarea {
+    background-color: #f8f9fa;
+    color: #111;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+    font-weight: bold;
+    resize: none;
+    padding-right: 90px;
+    border: 1px solid #d63384;
+}
+
+#btnCopy {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #d63384;
+    color: #fff;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+#btnCopy:hover {
+    background: #b02a6d;
+}
+
+#signature {
+    border: 2px solid #ae8569;
+    background-color: #fffdf5;
 }
 
 
