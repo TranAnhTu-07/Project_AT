@@ -1,0 +1,123 @@
+/* ========================================= */
+/* === CSS CHO PHẦN BODY PROFILE (MỚI) === */
+/* ========================================= */
+
+/* 1. Tổng thể trang */
+body {
+    background-color: #f4f6f8; /* Nền xám nhẹ cho sang */
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+/* 2. Container chính chứa 2 cột */
+.container {
+    max-width: 1200px;
+    margin: 40px auto; /* Canh giữa, cách top 40px */
+    padding: 0 15px;
+    display: flex; /* Dàn trang hàng ngang */
+    gap: 30px; /* Khoảng cách giữa 2 cột */
+    align-items: flex-start; /* Căn chỉnh lên trên cùng */
+}
+
+/* 3. Style chung cho các hộp (Box) */
+.box {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 8px; /* Bo góc */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* Đổ bóng nhẹ */
+    border: 1px solid #e1e1e1;
+}
+
+/* 4. Cột Trái: Hồ sơ cá nhân */
+.info-col {
+    width: 320px; /* Chiều rộng cố định */
+    flex-shrink: 0; /* Không bị co lại khi màn hình nhỏ */
+}
+
+.info-col p {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed #eee; /* Đường gạch đứt ngăn cách */
+    display: flex;
+    justify-content: space-between; /* Đẩy nội dung ra 2 bên */
+}
+
+.info-col p strong {
+    color: #333;
+    font-weight: 600;
+}
+
+/* Nút cập nhật thông tin */
+.info-col button {
+    width: 100%;
+    padding: 12px;
+    background-color: #333; /* Màu đen hoặc đổi thành #007bff nếu thích xanh */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 10px;
+}
+
+.info-col button:hover {
+    background-color: #0056b3; /* Đổi màu khi rê chuột */
+    transform: translateY(-2px);
+}
+
+/* 5. Cột Phải: Đơn hàng */
+.order-col {
+    flex-grow: 1; /* Chiếm hết phần diện tích còn lại */
+    min-height: 400px;
+}
+
+/* Tiêu đề H3 */
+.box h3 {
+    margin-top: 0;
+    margin-bottom: 25px;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #333;
+}
+
+/* 6. Bảng đơn hàng (Table) */
+table {
+    width: 100%;
+    border-collapse: collapse; /* Gộp đường viền */
+    font-size: 14px;
+}
+
+table thead th {
+    background-color: #f8f9fa;
+    color: #555;
+    font-weight: bold;
+    text-align: left;
+    padding: 15px;
+    border-bottom: 2px solid #ddd;
+}
+
+table tbody td {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    color: #333;
+    vertical-align: middle;
+}
+
+/* Hiệu ứng hover từng dòng đơn hàng */
+table tbody tr:hover {
+    background-color: #fafbfc;
+}
+
+/* Link "Mua sắm ngay" nếu chưa có đơn */
+.order-col a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.order-col a:hover {
+    text-decoration: underline;
+}

@@ -1,0 +1,253 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    padding: 10px;
+}
+
+.container {
+    max-width: 80%;
+    margin: 0 auto;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    overflow: hidden;
+}
+.order{
+    display: flex;
+}
+.header-body {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 30px;
+    text-align: center;
+}
+
+.header-body h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.header-body p {
+    opacity: 0.9;
+    font-size: 14px;
+}
+
+.order-info {
+    padding: 30px;
+    background: #f8f9fa;
+    border-bottom: 2px solid #e9ecef;
+}
+
+.order-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.info-item {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 4px solid #667eea;
+}
+
+.info-label {
+    font-size: 12px;
+    color: #6c757d;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 5px;
+}
+
+.info-value {
+    font-size: 16px;
+    font-weight: 600;
+    color: #212529;
+}
+
+.status-timeline {
+    padding: 40px 30px;
+}
+
+.timeline-title {
+    font-size: 22px;
+    color: #212529;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.timeline {
+    position: relative;
+    padding-left: 50px;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: #e9ecef;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: -37px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #e9ecef;
+    border: 3px solid white;
+    box-shadow: 0 0 0 3px #e9ecef;
+}
+
+.timeline-item.completed .timeline-dot {
+    background: #28a745;
+    box-shadow: 0 0 0 3px #28a745;
+}
+
+.timeline-item.active .timeline-dot {
+    background: #667eea;
+    box-shadow: 0 0 0 3px #667eea;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0.8;
+    }
+}
+
+.timeline-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    border: 2px solid #e9ecef;
+}
+
+.timeline-item.completed .timeline-content {
+    border-color: #28a745;
+    background: #f8fff9;
+}
+
+.timeline-item.active .timeline-content {
+    border-color: #667eea;
+    background: #f8f9ff;
+}
+
+.timeline-status {
+    font-size: 18px;
+    font-weight: 600;
+    color: #212529;
+    margin-bottom: 5px;
+}
+
+.timeline-date {
+    font-size: 13px;
+    color: #6c757d;
+    margin-bottom: 10px;
+}
+
+.timeline-description {
+    font-size: 14px;
+    color: #495057;
+    line-height: 1.6;
+}
+
+.products {
+    padding: 30px;
+    background: #f8f9fa;
+}
+
+.products-title {
+    font-size: 20px;
+    color: #212529;
+    margin-bottom: 20px;
+}
+
+.product-item {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.product-info {
+    flex: 1;
+}
+
+.product-name {
+    font-weight: 600;
+    color: #212529;
+    margin-bottom: 5px;
+}
+
+.product-details {
+    font-size: 13px;
+    color: #6c757d;
+}
+
+.product-price {
+    font-size: 18px;
+    font-weight: 700;
+    color: #667eea;
+}
+
+.total {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+    text-align: right;
+}
+
+.total-label {
+    font-size: 16px;
+    color: #6c757d;
+    margin-bottom: 5px;
+}
+
+.total-amount {
+    font-size: 28px;
+    font-weight: 700;
+    color: #28a745;
+}
+
+.badge {
+    display: inline-block;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.badge-success {
+    background: #d4edda;
+    color: #155724;
+}
+
+.badge-info {
+    background: #d1ecf1;
+    color: #0c5460;
+}

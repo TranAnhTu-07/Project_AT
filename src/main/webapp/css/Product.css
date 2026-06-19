@@ -1,0 +1,132 @@
+
+#main-page-content{
+    font-family: Arial, sans-serif;
+    border-radius: 15px;
+    display: flex;
+    background: rgba(163, 163, 163, 0.3);
+    width: 1400px;
+    margin: 60px auto;
+}
+.brand-container {
+    margin: 40px 0 20px 0;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+}
+.brand-item {
+    cursor: pointer;
+    background: #ffffff;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s ease;
+}
+.brand-item a {
+    display: block; /* Để thẻ a phủ kín cái div cha */
+    width: 100%;
+    height: 100%;
+}
+.brand-item:hover {
+    box-shadow: 0 0 6px rgba(0, 123, 255, 0.4);
+    transform: scale(1.08);
+}
+.brand-item img {
+    max-height: 45px;
+    width: 170px;
+    object-fit: contain;
+}
+
+.cover-product-item {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+.product-card-item {
+    background: #fff;
+    border-radius: 15px;
+    padding: 15px;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.25s ease-in-out;
+}
+
+.product-card-item:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+.product-img {
+    width: 100%;
+    height: 180px;
+    object-fit: contain;
+    margin-bottom: 15px;
+}
+.product-name {
+    margin: 10px 0;
+    font-size: 15px;
+    font-weight: 500;
+    color: #333;
+    line-height: 1.4;
+    height: 42px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+.product-price {
+    color: red;
+    font-size: 18px;
+    font-weight: 700;
+    margin-top: 10px;
+}
+.product-title{
+    font-size: 25px;
+    font-weight: bold;
+    margin: 25px 25px 0 25px;
+    border-bottom: 2px solid #e74c3c;
+}
+a {
+    text-decoration : none ;
+}
+
+.product-card-item {
+    position: relative;
+}
+
+.cart-mini-wrapper {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    opacity: 1;
+    visibility: visible;
+    z-index: 10;
+}
+
+.btn-cart-mini {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #e74c3c;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+}
+
+
+.btn-cart-mini:hover {
+    background: #c0392b;
+    transform: scale(1.1);
+}
+
