@@ -24,7 +24,7 @@
 <header class="header">
     <div class="header-top">
         <div class="logo-search">
-            <a href="ListProduct" class="logo">
+            <a href="${pageContext.request.contextPath}/ListProduct" class="logo">
                 <div class="logo-icon">📷</div>
                 <div class="logo-text">
                     <div class="logo-main">GROUP11</div>
