@@ -29,6 +29,9 @@ public class MyOrdersController extends HttpServlet {
 
         List<Orders> orders = OrderDao.getOrdersByUserId(userId);
 
+//        request.setAttribute("orders", orders);
+//        request.getRequestDispatcher("/my-orders.jsp").forward(request, resp);
+
         req.setAttribute("orders", orders);
 
         req.getRequestDispatcher(

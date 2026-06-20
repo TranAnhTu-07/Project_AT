@@ -17,7 +17,7 @@ public class Orders {
 
     private Date orderDate;
 
-    private int orderStatus;
+    private String orderStatus;
 
     private String digitalSignature;
     private int signatureStatus;
@@ -99,11 +99,11 @@ public class Orders {
         this.orderDate = orderDate;
     }
 
-    public int getOrderStatus() {
+    public String getOrderStatus() {
         return orderStatus;
     }
 
-    public void setOrderStatus(int orderStatus) {
+    public void setOrderStatus(String orderStatus) {
         this.orderStatus = orderStatus;
     }
 

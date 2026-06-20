@@ -1,123 +1,124 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: tranc
-  Date: 6/20/2026
-  Time: 2:41 PM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="jakarta.tags.fmt" %>
 <html>
 <head>
-    <title>Chi tiết ơn hàng</title>
+    <title>Chi tiết đơn hàng</title>
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/order-detail.css">
 </head>
 <body>
-<h1>
 
-    Chi tiết đơn hàng
+<div class="detail-container">
 
-    #DH${order.orderId}
+    <h1 class="detail-title">Chi tiết đơn hàng <span>#DH${order.orderId}</span></h1>
 
-</h1>
-<div class="receiver-info">
+    <div class="detail-grid">
 
-    <h2>Thông tin người nhận</h2>
+        <div class="info-card">
+            <h2 class="card-title"><i class="fa-solid fa-user"></i> Thông tin người nhận</h2>
 
-    <p>
-        <b>Họ tên:</b>
-        ${order.customerName}
-    </p>
+            <div class="info-row">
+                <span class="info-label">Họ tên</span>
+                <span class="info-value">${order.customerName}</span>
+            </div>
 
-    <p>
-        <b>SĐT:</b>
-        ${order.phoneNumber}
-    </p>
+            <div class="info-row">
+                <span class="info-label">SĐT</span>
+                <span class="info-value">${order.phoneNumber}</span>
+            </div>
 
-    <p>
-        <b>Địa chỉ:</b>
-        ${order.shippingAddress}
-    </p>
+            <div class="info-row">
+                <span class="info-label">Địa chỉ</span>
+                <span class="info-value">${order.shippingAddress}</span>
+            </div>
+        </div>
+
+        <div class="info-card">
+            <h2 class="card-title"><i class="fa-solid fa-box"></i> Thông tin đơn hàng</h2>
+
+            <div class="info-row">
+                <span class="info-label">Ngày đặt</span>
+                <span class="info-value">
+                    <fmt:formatDate value="${order.orderDate}" pattern="dd/MM/yyyy"/>
+                </span>
+            </div>
+
+            <div class="info-row">
+                <span class="info-label">Tổng tiền</span>
+                <span class="info-value total-amount">
+                    <fmt:formatNumber value="${order.totalAmount}" type="number" groupingUsed="true"/> ₫
+                </span>
+            </div>
+
+            <div class="info-row">
+                <span class="info-label">Trạng thái ký số</span>
+                <span class="info-value">
+                    <c:choose>
+                        <c:when test="${order.signatureStatus == 1}">
+                            <span class="badge badge-signed"><i class="fa-solid fa-check"></i> Đã ký</span>
+                        </c:when>
+                        <c:otherwise>
+                            <span class="badge badge-unsigned"><i class="fa-solid fa-xmark"></i> Chưa ký</span>
+                        </c:otherwise>
+                    </c:choose>
+                </span>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="product-card">
+        <h2 class="card-title"><i class="fa-solid fa-camera"></i> Sản phẩm trong đơn</h2>
+
+        <table class="product-table">
+            <thead>
+            <tr>
+                <th>Sản phẩm</th>
+                <th>Số lượng</th>
+                <th>Giá</th>
+            </tr>
+            </thead>
+            <tbody>
+            <c:forEach items="${details}" var="d">
+                <tr>
+                    <td>${d.product.productName}</td>
+                    <td class="qty-cell">${d.quantity}</td>
+                    <td class="price-cell">
+                        <fmt:formatNumber value="${d.price}" type="number" groupingUsed="true"/> ₫
+                    </td>
+                </tr>
+            </c:forEach>
+            </tbody>
+        </table>
+    </div>
+    <div class="action-buttons">
+        <button id="btnCancelOrder" class="btn-action btn-cancel" type="button">
+            <i class="fa-solid fa-circle-xmark"></i> Hủy đơn hàng
+        </button>
+
+        <button id="btnSignOrder" class="btn-action btn-sign" type="button">
+            <i class="fa-solid fa-signature"></i> Ký lại đơn hàng
+        </button>
+    </div>
 
 </div>
-<%--thông tin đơn hàng--%>
-<div class="order-info">
 
-    <p>
+<script>
+    document.getElementById("btnSignOrder").addEventListener("click", function () {
+        // TODO: gọi API/Servlet ký đơn hàng tại đây, ví dụ:
+        // fetch("${pageContext.request.contextPath}/sign-order?id=${order.orderId}", { method: "POST" })
+        console.log("Bấm Ký đơn hàng - orderId = ${order.orderId}");
+    });
 
-        <b>Ngày đặt:</b>
-
-        ${order.orderDate}
-
-    </p>
-
-    <p>
-
-        <b>Tổng tiền:</b>
-
-        ${order.totalAmount}
-
-    </p>
-
-</div>
-<%--trạng thái chữ ký--%>
-<p>
-
-    <b>Trạng thái ký số:</b>
-
-    <c:choose>
-
-        <c:when test="${order.signatureStatus==1}">
-
-            <span class="signed">
-
-                Đã ký
-
-            </span>
-
-        </c:when>
-
-        <c:otherwise>
-
-            <span class="unsigned">
-
-                Chưa ký
-
-            </span>
-
-        </c:otherwise>
-
-    </c:choose>
-
-</p>
-<%--danh sách sản phẩm--%>
-<table>
-
-    <tr>
-        <th>Sản phẩm</th>
-        <th>SL</th>
-        <th>Giá</th>
-    </tr>
-
-    <c:forEach items="${details}" var="d">
-
-        <tr>
-
-            <td>
-                    ${d.product.productName}
-            </td>
-
-            <td>
-                    ${d.quantity}
-            </td>
-
-            <td>
-                    ${d.price}
-            </td>
-
-        </tr>
-
-    </c:forEach>
-
-</table>
+    document.getElementById("btnCancelOrder").addEventListener("click", function () {
+        // TODO: gọi API/Servlet hủy đơn hàng tại đây, ví dụ:
+        // fetch("${pageContext.request.contextPath}/cancel-order?id=${order.orderId}", { method: "POST" })
+        console.log("Bấm Hủy đơn hàng - orderId = ${order.orderId}");
+    });
+</script>
 
 </body>
 </html>
