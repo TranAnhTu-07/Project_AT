@@ -44,5 +44,15 @@
 
 <jsp:include page="/common/footer.jsp"/>
 
+<c:if test="${not empty successAlert}">
+  <script>
+    alert("${successAlert}");
+    window.location.href = "${pageContext.request.contextPath}/ListProduct";
+  </script>
+</c:if>
+
+</body>
+</html>
+
 </body>
 </html>

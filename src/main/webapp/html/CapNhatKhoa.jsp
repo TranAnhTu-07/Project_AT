@@ -10,23 +10,27 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
     <style>
-        .bmk-textarea {
+        /* CSS cho vùng chọn file đẹp mắt và chuyên nghiệp hơn */
+        .file-upload-wrapper {
+            position: relative;
             width: 100%;
-            height: 160px;
-            padding: 15px;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 13px;
-            resize: none;
-            box-sizing: border-box;
-            background: #fafafa;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
-        .bmk-textarea:focus {
-            border-color: #28a745;
-            outline: none;
-            box-shadow: 0 0 5px rgba(40,167,69,0.2);
+        .file-upload-input {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px dashed #28a745;
+            border-radius: 6px;
+            background-color: #fafafa;
+            font-size: 15px;
+            color: #495057;
+            cursor: pointer;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+        .file-upload-input:hover {
+            background-color: #f1f9f3;
+            border-color: #218838;
         }
         .bmk-btn-success {
             background-color: #28a745;
@@ -37,6 +41,7 @@
             font-weight: bold;
             border-radius: 4px;
             cursor: pointer;
+            width: 100%; /* Kéo dài nút bằng form cho cân đối */
             transition: background-color 0.2s;
         }
         .bmk-btn-success:hover {
@@ -65,15 +70,15 @@
 
         <p class="bmk-description">
             Vui lòng sử dụng <strong>Tool Tạo Khóa RSA</strong> của nhóm để sinh ra cặp khóa mới.<br>
-            Sau đó, hãy sao chép (Copy) đoạn mã <strong>Public Key</strong> và dán vào ô bên dưới.
+            Sau đó, hãy chọn và tải file <strong>public_key.txt</strong> lên hệ thống bên dưới.
         </p>
 
         <div class="bmk-warning-box" style="background-color: #e9ecef; border-color: #dee2e6;">
-            <h3 class="bmk-warning-title" style="color: #495057;">Hướng dẫn nhập khóa</h3>
+            <h3 class="bmk-warning-title" style="color: #495057;">Hướng dẫn tải khóa</h3>
             <ul class="bmk-warning-list" style="color: #495057;">
-                <li>Chuỗi Public Key hợp lệ thường bắt đầu bằng <code>-----BEGIN PUBLIC KEY-----</code></li>
-                <li>Tuyệt đối <strong>không dán Private Key</strong> lên hệ thống để đảm bảo an toàn.</li>
-                <li>Sau khi cập nhật thành công, bạn có thể tiếp tục mua hàng và ký số đơn hàng.</li>
+                <li>Hệ thống chỉ chấp nhận định dạng file văn bản chứa mã khóa dạng <code>.txt</code></li>
+                <li>Tuyệt đối <strong>không tải file Private Key</strong> lên hệ thống để đảm bảo an toàn bảo mật.</li>
+                <li>Sau khi cập nhật thành công, hệ thống tự động vô hiệu hóa khóa cũ (nếu có) và bạn có thể ký số đơn hàng.</li>
             </ul>
         </div>
 
@@ -83,11 +88,13 @@
             </div>
         </c:if>
 
-        <form action="CapNhatKhoa" method="POST">
-            <textarea name="publicKeyText" class="bmk-textarea" placeholder="Dán nội dung Public Key của bạn vào đây..."></textarea>
+        <form action="CapNhatKhoa" method="POST" enctype="multipart/form-data">
+            <div class="file-upload-wrapper">
+                <input type="file" name="keyFile" accept=".txt" class="file-upload-input" required>
+            </div>
 
             <button type="submit" class="bmk-btn-success">
-                Xác nhận lưu khóa
+                <i class="fas fa-upload"></i> Xác nhận tải khóa lên
             </button>
         </form>
 
@@ -96,5 +103,14 @@
 
 <jsp:include page="/common/footer.jsp"/>
 
+<c:if test="${not empty successAlert}">
+    <script>
+        alert("${successAlert}");
+        window.location.href = "${pageContext.request.contextPath}/ListProduct";
+    </script>
+</c:if>
+
+</body>
+</html>
 </body>
 </html>
