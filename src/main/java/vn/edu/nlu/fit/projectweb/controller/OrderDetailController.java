@@ -9,38 +9,35 @@ import vn.edu.nlu.fit.projectweb.model.OrderDetail;
 import vn.edu.nlu.fit.projectweb.model.Orders;
 import vn.edu.nlu.fit.projectweb.dao.OrderDetailDAO;
 import java.util.List;
-
 import java.io.IOException;
 
 @WebServlet(name = "OrderDetailController", value = "/order-detail")
 public class OrderDetailController extends HttpServlet {
 
-    private OrderDao orderDao =
-            new OrderDao();
-
-    private OrderDetailDAO detailDao =
-            new OrderDetailDAO();
+    private OrderDao orderDao = new OrderDao();
+    private OrderDetailDAO detailDao = new OrderDetailDAO();
 
     @Override
     protected void doGet(HttpServletRequest req,
                          HttpServletResponse resp)
             throws ServletException, IOException {
 
-        int id =
-                Integer.parseInt(
-                        req.getParameter("id"));
+        String idParam = req.getParameter("id");
 
-        List<Orders> orders = orderDao.getOrdersByUserId(id);
-//                OrderDao.getor.getOrderById(id);
+        if (idParam == null || idParam.isEmpty()) {
+            resp.sendError(HttpServletResponse.SC_BAD_REQUEST, "Thiếu mã đơn hàng");
+            return;
+        }
 
-        List<OrderDetail> details =
-                detailDao.getDetailsByOrder(id);
+        int id = Integer.parseInt(idParam);
 
-        req.setAttribute("order", orders);
+        Orders order = orderDao.getOrderById(id);
+        List<OrderDetail> details = detailDao.getDetailsByOrder(id);
+
+        req.setAttribute("order", order);
         req.setAttribute("details", details);
 
-        req.getRequestDispatcher(
-                        "/html/order-detail.jsp")
-                .forward(req,resp);
+        req.getRequestDispatcher("/html/order-detail.jsp")
+                .forward(req, resp);
     }
 }

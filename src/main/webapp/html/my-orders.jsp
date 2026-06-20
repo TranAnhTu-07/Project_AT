@@ -1,8 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="jakarta.tags.fmt" %>
-<p>Orders = ${orders}</p>
-<p>Size = ${orders.size()}</p>
 <html>
 <head>
   <meta charset="UTF-8">
@@ -14,94 +12,88 @@
   <link rel="stylesheet" href="${pageContext.request.contextPath}/css/my-orders.css">
   <script src="js/search.js"></script>
 </head>
-<jsp:include page="/common/header.jsp"/>
-
 <body>
-<table class="order-table">
+<jsp:include page="/common/header.jsp"/>
+<div class="orders-container">
+  <h2 class="orders-title">Đơn hàng của tôi</h2>
+    <table class="order-table">
 
-  <thead>
-  <tr>
-    <th>Mã đơn hàng</th>
-    <th>Ngày mua</th>
-    <th>Sản phẩm</th>
-    <th>Tổng tiền</th>
-    <th>Trạng thái</th>
-    <th>Chữ ký</th>
-  </tr>
-  </thead>
+      <thead>
+      <tr>
+        <th>Mã đơn hàng</th>
+        <th>Ngày mua</th>
+        <th>Sản phẩm</th>
+        <th>Tổng tiền</th>
+        <th>Trạng thái</th>
+        <th>Chữ ký</th>
+      </tr>
+      </thead>
 
-  <tbody>
+      <tbody>
 
-  <c:forEach items="${orders}" var="o">
+      <c:forEach items="${orders}" var="o">
 
-    <tr>
+        <tr>
 
-      <td>
-        #DH${o.orderId}
-      </td>
+          <td>
+            #DH${o.orderId}
+          </td>
 
-      <td>
-          ${o.orderDate}
-      </td>
+          <td>
+            <fmt:formatDate value="${o.orderDate}" pattern="dd/MM/yyyy"/>
+          </td>
 
-      <td>
+          <td>
+            <a class="btn-detail" href="${pageContext.request.contextPath}/order-detail?id=${o.orderId}">
+              Xem chi tiết
+            </a>
 
-        <a href="${pageContext.request.contextPath}
-                    /order-detail?id=${o.orderId}">
+          </td>
 
-          Xem chi tiết
+          <td>
+            <fmt:formatNumber value="${o.totalAmount}" type="number" groupingUsed="true"/> ₫
+          </td>
 
-        </a>
+          <td>
+            <c:choose>
+              <c:when test="${o.orderStatus == 'Chờ xác nhận'}">
+                <span class="status-badge status-pending">Chờ xác nhận</span>
+              </c:when>
+              <c:when test="${o.orderStatus == 'Đang xử lý'}">
+                <span class="status-badge status-processing">Đang xử lý</span>
+              </c:when>
+              <c:when test="${o.orderStatus == 'Đang giao hàng'}">
+                <span class="status-badge status-shipping">Đang giao</span>
+              </c:when>
+              <c:when test="${o.orderStatus == 'Đã giao'}">
+                <span class="status-badge status-delivered">Đã giao</span>
+              </c:when>
+              <c:otherwise>
+                <span class="status-badge">${o.orderStatus}</span>
+              </c:otherwise>
+            </c:choose>
+          </td>
 
-      </td>
+          <td>
 
-      <td>
-          ${o.totalAmount}
-      </td>
+            <c:if test="${o.signatureStatus==0}">
+              ❌
+            </c:if>
 
-      <td>
+            <c:if test="${o.signatureStatus==1}">
+              ✔
+            </c:if>
 
-        <c:choose>
+          </td>
 
-          <c:when test="${o.orderStatus==0}">
-            Chờ xác nhận
-          </c:when>
+        </tr>
 
-          <c:when test="${o.orderStatus==1}">
-            Đang xử lý
-          </c:when>
+      </c:forEach>
 
-          <c:when test="${o.orderStatus==2}">
-            Đang giao
-          </c:when>
+      </tbody>
 
-          <c:otherwise>
-            Đã giao
-          </c:otherwise>
-
-        </c:choose>
-
-      </td>
-
-      <td>
-
-        <c:if test="${o.signatureStatus==0}">
-          ❌
-        </c:if>
-
-        <c:if test="${o.signatureStatus==1}">
-          ✔
-        </c:if>
-
-      </td>
-
-    </tr>
-
-  </c:forEach>
-
-  </tbody>
-
-</table>
+    </table>
+</div>
 <%--footer--%>
 <jsp:include page="/common/footer.jsp"/>
 </body>

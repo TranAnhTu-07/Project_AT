@@ -79,6 +79,9 @@
                             <a href="profile" class="dropdown-item">
                                 <i class="fas fa-id-card"></i> Hồ sơ cá nhân
                             </a>
+                            <a href="my-orders" class="dropdown-item">
+                                <i class="fas fa-id-card"></i> Đơn hàng của tôi
+                            </a>
                             <a href="BaoMatKhoa" class="dropdown-item">
                                 <i class="fas fa-key"></i> Báo mất khóa
                             </a>

@@ -1,124 +1,133 @@
-/* =========================
-   MY ORDERS PAGE
-========================= */
+.orders-container {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
 
-body {
-    background: #f5f7fa;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+.orders-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin-bottom: 20px;
 }
 
 .order-table {
-    width: 90%;
-    max-width: 1200px;
-    margin: 40px auto;
+    width: 100%;
     border-collapse: collapse;
-    background: #fff;
+    background: #ffffff;
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    font-size: 16px;
 }
 
-/* Header */
-.order-table thead {
-    background: #1f2937;
-    color: white;
+.order-table thead tr {
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
 }
 
 .order-table thead th {
-    padding: 16px;
-    text-align: center;
-    font-size: 15px;
+    color: #ffffff;
+    font-size: 16px;
     font-weight: 600;
+    padding: 18px 20px;
+    text-align: left;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
-/* Body */
-.order-table tbody td {
-    padding: 15px;
-    text-align: center;
-    border-bottom: 1px solid #e5e7eb;
-    font-size: 14px;
+.order-table tbody tr {
+    border-bottom: 1px solid #eef0f5;
+    transition: background 0.2s ease;
 }
 
-/* Hover */
 .order-table tbody tr:hover {
-    background: #f9fafb;
-    transition: 0.3s;
+    background: #f7f9fc;
 }
 
-/* Order ID */
+.order-table tbody td {
+    padding: 20px 20px;
+    color: #2d2d2d;
+    vertical-align: middle;
+}
+
 .order-table tbody td:first-child {
-    font-weight: bold;
-    color: #2563eb;
+    font-weight: 700;
+    color: #0d6efd;
 }
 
-/* Link xem chi tiết */
-.order-table a {
+/* Nút Xem chi tiết */
+.btn-detail {
+    display: inline-block;
+    background: #0d6efd;
+    color: #ffffff;
+    padding: 10px 18px;
+    border-radius: 8px;
     text-decoration: none;
-    color: white;
-    background: #2563eb;
-    padding: 8px 14px;
-    border-radius: 6px;
-    font-size: 13px;
-    transition: 0.3s;
+    font-weight: 600;
+    font-size: 14px;
+    transition: background 0.2s ease, transform 0.15s ease;
 }
 
-.order-table a:hover {
-    background: #1d4ed8;
+.btn-detail:hover {
+    background: #0b5ed7;
+    transform: translateY(-1px);
+}
+
+/* Badge trạng thái */
+.status-badge {
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.status-pending {
+    background: #fff3cd;
+    color: #997404;
+}
+
+.status-processing {
+    background: #cfe2ff;
+    color: #0a4fb5;
+}
+
+.status-shipping {
+    background: #ffe5d0;
+    color: #c25400;
+}
+
+.status-delivered {
+    background: #d1f4dd;
+    color: #0f7b3f;
 }
 
 /* Tổng tiền */
 .order-table tbody td:nth-child(4) {
-    font-weight: bold;
-    color: #dc2626;
+    font-weight: 700;
+    color: #e63946;
+    font-size: 17px;
 }
 
-/* Trạng thái */
-.status-pending {
-    color: #d97706;
-    font-weight: bold;
-}
-
-.status-processing {
-    color: #2563eb;
-    font-weight: bold;
-}
-
-.status-shipping {
-    color: #7c3aed;
-    font-weight: bold;
-}
-
-.status-delivered {
-    color: #16a34a;
-    font-weight: bold;
-}
-
-/* Chữ ký */
-.signature-ok {
-    color: #16a34a;
+/* Chữ ký icon */
+.order-table tbody td:last-child {
     font-size: 20px;
+    text-align: center;
 }
 
-.signature-fail {
-    color: #dc2626;
-    font-size: 20px;
-}
-
-/* Responsive */
+/* Responsive cho màn hình nhỏ */
 @media (max-width: 768px) {
     .order-table {
-        width: 98%;
-        font-size: 12px;
+        font-size: 14px;
     }
 
     .order-table thead th,
     .order-table tbody td {
-        padding: 10px 5px;
+        padding: 12px 10px;
     }
 
-    .order-table a {
+    .status-badge {
         padding: 6px 10px;
         font-size: 12px;
     }
