@@ -4,42 +4,51 @@ body {
     margin: 0;
     color: #333;
 }
-.checkout-header {
-    background: linear-gradient(135deg,rgb(102, 126, 234) 0%, rgb(118, 75, 162) 100%);
-    color: #fff;
+
+.page-title {
     text-align: center;
-    padding: 15px;
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 2px dashed #eee;
 }
 
-.checkout-header h1 {
-    font-size: 1.6rem;
+.page-title h1 {
+    color: #ae8569;
+    font-size: 1.8rem;
     margin-bottom: 5px;
+    margin-top: 0;
+}
+
+.page-title p {
+    color: #666;
+    margin: 0;
 }
 
 .checkout-container {
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 30px;
-    max-width: 1200px;
-    margin: 40px auto;
+    max-width: 800px;
+    margin: 0 auto 50px auto;
     padding: 0 20px;
 }
-.checkout{
-    display: flex;
-}
-.checkout-left {
-    flex: 1 1 40%;
+
+.checkout-block {
     background: #fff;
     padding: 25px;
     border-radius: 15px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 3px 15px rgba(0,0,0,0.05);
+    margin-bottom: 25px;
 }
 
-.checkout-left h2 {
+.checkout-block h2 {
     color: #111;
-    border-left: 4px solid #ae8569;
-    padding-left: 10px;
-    margin-bottom: 15px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    font-size: 1.4rem;
+}
+
+.checkout-block h2 i {
+    color: #ae8569;
+    margin-right: 8px;
 }
 
 .form-group {
@@ -55,10 +64,11 @@ body {
 .form-group input,
 .form-group textarea {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     border-radius: 8px;
     border: 1px solid #ccc;
     font-size: 15px;
+    box-sizing: border-box;
 }
 
 .form-group input:focus,
@@ -68,153 +78,89 @@ body {
     box-shadow: 0 0 5px rgba(174,133,105,0.3);
 }
 
-.checkout-right {
-    flex: 1 1 35%;
-    position: sticky;
-    top: 20px;
-    background: #fff;
-    padding: 25px;
-    border-radius: 15px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-    height: fit-content;
-}
-
-.order-summary h2,
-.payment-method h2 {
-    border-left: 4px solid #ae8569;
-    padding-left: 10px;
-    margin-bottom: 15px;
-}
-
 .order-item {
     display: flex;
     align-items: center;
     gap: 15px;
     margin-bottom: 15px;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 10px;
+    border-bottom: 1px dashed #eee;
+    padding-bottom: 15px;
 }
 
 .order-item img {
-    width: 70px;
-    height: 70px;
+    width: 80px;
+    height: 80px;
     border-radius: 10px;
     object-fit: cover;
 }
 
+.order-info {
+    flex-grow: 1;
+}
+
 .order-info h4 {
-    margin: 0;
+    margin: 0 0 5px 0;
     font-size: 16px;
+}
+
+.order-info p {
+    margin: 0;
+    color: #666;
 }
 
 .price {
     color: #ae8569;
     font-weight: bold;
+    font-size: 16px !important;
 }
 
 .total-section {
-    border-top: 1px solid #ddd;
-    padding-top: 10px;
-    margin-top: 10px;
+    margin-top: 20px;
+    text-align: right;
 }
 
-.total-section p,
-.total-section h3 {
-    display: flex;
-    justify-content: space-between;
+.total-section p {
     margin: 8px 0;
+    color: #555;
+    font-size: 1.1em;
 }
 
-.total-section h3 span {
-    color: #ae8569;
-    font-size: 18px;
+.total-section h3 {
+    color: #e53935;
+    font-size: 1.5em;
+    margin-top: 15px;
 }
 
 .payment-method label {
     display: block;
-    margin: 8px 0;
+    margin: 12px 0;
     cursor: pointer;
+    font-size: 16px;
+}
+
+.payment-method input[type="radio"] {
+    margin-right: 10px;
+    accent-color: #ae8569;
+    transform: scale(1.2);
 }
 
 #confirmOrder {
     width: 100%;
-    margin-top: 20px;
-    padding: 15px;
+    margin-top: 10px;
+    padding: 16px;
     border: none;
     border-radius: 10px;
     background: #ae8569;
     color: #fff;
-    font-size: 17px;
+    font-size: 18px;
     font-weight: bold;
     cursor: pointer;
     transition: 0.3s;
+    text-transform: uppercase;
+    box-shadow: 0 4px 10px rgba(174, 133, 105, 0.3);
 }
 
 #confirmOrder:hover {
     background: #946d53;
+    transform: translateY(-2px);
 }
-
-.checkout-footer {
-    background: #1e1e1e;
-    color: #fff;
-    text-align: center;
-    padding: 15px;
-    margin-top: 50px;
-}
-/* --- PHẦN THÊM CHO CHỮ KÝ ĐIỆN TỬ --- */
-.signature-section {
-    margin-top: 25px;
-    padding-top: 20px;
-    border-top: 2px dashed #ccc;
-}
-
-.signature-section h3 {
-    color: #d63384;
-    margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.copy-box {
-    position: relative;
-    margin-bottom: 15px;
-}
-
-.copy-box textarea {
-    background-color: #f8f9fa;
-    color: #111;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 14px;
-    font-weight: bold;
-    resize: none;
-    padding-right: 90px;
-    border: 1px solid #d63384;
-}
-
-#btnCopy {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: #d63384;
-    color: #fff;
-    border: none;
-    padding: 6px 12px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 13px;
-    font-weight: bold;
-    transition: 0.3s;
-}
-
-#btnCopy:hover {
-    background: #b02a6d;
-}
-
-#signature {
-    border: 2px solid #ae8569;
-    background-color: #fffdf5;
-}
-
-
-
