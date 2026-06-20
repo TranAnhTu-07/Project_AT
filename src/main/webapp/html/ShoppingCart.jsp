@@ -202,7 +202,7 @@
                                 <a href="<%= request.getContextPath() %>/cart?action=increase&productId=<%= product.getProductID() %>"
                                    class="quantity-btn">+</a>
                             </div>
-                            <button class="remove-btn" onclick="removeFromCart(<%= product.getProductID() %>)">Xóa</button>
+                            <button class="remove-btn" onclick="removeItem(<%= product.getProductID() %>)"><i class="fa-solid fa-trash"></i> Xóa</button>
                         </div>
                     </div>
                     <%
@@ -245,12 +245,14 @@
 
             <button class="checkout-btn" onclick="window.location.href='${pageContext.request.contextPath}/PrepareCheckout'">Tiến hành thanh toán</button>
             <a href="<%= request.getContextPath() %>/ListProduct" class="continue-shopping">Tiếp tục mua sắm</a>
+
+            <button class="clear-cart-btn" onclick="clearCart()">
+                <i class="fa-solid fa-trash-can"></i> Xóa toàn bộ giỏ hàng
+            </button>
         </div>
     </div>
 </div>
-<button onclick="clearCart()" style="margin-top: 15px; width: 100%; padding: 12px; background-color: #e74c3c; color: white; border: none; border-radius: 4px; cursor: pointer;">
-    Xóa giỏ hàng
-</button>
+
 
 <div class="notification" id="notification">Sản phẩm đã được xóa khỏi giỏ hàng!</div>
 <!--footer-->
