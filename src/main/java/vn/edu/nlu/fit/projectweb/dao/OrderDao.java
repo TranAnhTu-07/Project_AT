@@ -1,5 +1,6 @@
 package vn.edu.nlu.fit.projectweb.dao;
 
+import vn.edu.nlu.fit.projectweb.model.OrderDetail;
 import vn.edu.nlu.fit.projectweb.model.OrderView;
 import vn.edu.nlu.fit.projectweb.model.Orders;
 import vn.edu.nlu.fit.projectweb.utils.DBConnection;
@@ -142,5 +143,59 @@ public class OrderDao extends BaseDao {
         o.setSignatureStatus(rs.getInt("signature_status"));
 
         return o;
+    }
+    public int insertOrder(Orders order, List<OrderDetail> cartItems) {
+
+        String sqlOrder = "INSERT INTO orders (customer_name, phone_number, email, shipping_address, " +
+                "total_amount, payment_method, order_date, order_status, signature_status) " +
+                "VALUES (:customerName, :phoneNumber, :email, :shippingAddress, " +
+                ":totalAmount, :paymentMethod, NOW(), 1, 0)";
+
+        String sqlDetail = "INSERT INTO order_details (order_id, product_id, quantity, price) " +
+                "VALUES (:orderId, :productId, :quantity, :price)";
+
+        try {
+            Long generatedId = get().inTransaction(handle -> {
+
+                org.jdbi.v3.core.statement.Update update = handle.createUpdate(sqlOrder);
+
+                if (order.getUserId() > 0) {
+                    update.bind("userId", order.getUserId());
+                } else {
+                    update.bindNull("userId", java.sql.Types.INTEGER);
+                }
+
+                update.bind("totalAmount",    order.getTotalAmount())
+                        .bind("customerName",   order.getCustomerName())
+                        .bind("phoneNumber",    order.getPhoneNumber())
+                        .bind("email",          order.getEmail())
+                        .bind("shippingAddress",order.getShippingAddress())
+                        .bind("paymentMethod",  order.getPaymentMethod());
+
+                Long orderId = update.executeAndReturnGeneratedKeys("order_id")
+                        .mapTo(Long.class)
+                        .one();
+
+                if (orderId != null && orderId > 0 && cartItems != null && !cartItems.isEmpty()) {
+                    org.jdbi.v3.core.statement.PreparedBatch batch = handle.prepareBatch(sqlDetail);
+                    for (OrderDetail item : cartItems) {
+                        batch.bind("orderId",    orderId)
+                                .bind("productId",  item.getProductId())
+                                .bind("quantity",   item.getQuantity())
+                                .bind("price",      item.getPrice())
+                                .add();
+                    }
+                    batch.execute();
+                }
+
+                return orderId;
+            });
+
+            return generatedId != null ? generatedId.intValue() : -1;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return -1;
+        }
     }
 }
