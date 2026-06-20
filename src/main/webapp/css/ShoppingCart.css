@@ -12,13 +12,14 @@
     display: inline-block;
     margin-top: 15px;
     padding: 10px 20px;
-    background-color: #ee4d2d;
+    background-color: #ae8569; /* Đổi màu tone nâu */
     color: #fff;
     text-decoration: none;
     border-radius: 5px;
+    transition: background-color 0.3s;
 }
 .shop-now-btn:hover{
-    background-color: #d63a1e;
+    background-color: #8f6a50;
 }
 
 .cart-icon {
@@ -30,7 +31,7 @@
     position: absolute;
     top: -8px;
     right: -8px;
-    background-color: #e74c3c;
+    background-color: #b86a5a; /* Đỏ gạch nung cho nổi */
     color: white;
     border-radius: 50%;
     width: 20px;
@@ -98,7 +99,7 @@
 }
 
 .item-price {
-    color: #e74c3c;
+    color: #ae8569; /* Đổi màu giá tiền cho tông xuyệt tông */
     font-weight: bold;
     margin-bottom: 10px;
 }
@@ -109,10 +110,12 @@
     margin-top: 10px;
 }
 
+/* NÚT PHỤ: Cộng/Trừ (Nâu be nhạt) */
 .quantity-btn {
     width: 30px;
     height: 30px;
-    background-color: #f1f1f1;
+    background-color: #d1b39f;
+    color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -120,6 +123,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: background-color 0.3s;
+}
+.quantity-btn:hover {
+    background-color: #ba957d;
 }
 
 .quantity-input {
@@ -131,17 +138,21 @@
     margin: 0 10px;
 }
 
+/* NÚT NGUY HIỂM: Xóa (Pha đỏ gạch) */
 .remove-btn {
-    background-color: transparent;
+    background-color: #b86a5a;
+    color: white;
     border: none;
-    color: #e74c3c;
+    border-radius: 4px;
+    padding: 5px 10px;
     cursor: pointer;
     margin-top: 10px;
     font-size: 14px;
+    transition: background-color 0.3s;
 }
 
 .remove-btn:hover {
-    text-decoration: underline;
+    background-color: #9a5345;
 }
 
 .summary-title {
@@ -162,61 +173,75 @@
     margin-top: 10px;
     padding-top: 10px;
     border-top: 1px solid #eee;
+    color: #ae8569;
 }
 
+/* NÚT CHÍNH: Thanh toán */
 .checkout-btn {
     width: 100%;
     padding: 12px;
-    background-color: #2c3e50;
+    background-color: #ae8569;
     color: white;
     border: none;
     border-radius: 4px;
     font-size: 16px;
+    font-weight: bold;
     cursor: pointer;
     margin-top: 20px;
-    transition: background-color 0.3s;
+    box-shadow: 0 4px 6px rgba(174, 133, 105, 0.4);
+    transition: all 0.3s;
 }
 
 .checkout-btn:hover {
-    background-color: #1a252f;
+    background-color: #8f6a50;
+    transform: translateY(-2px);
 }
 
+/* NÚT ĐIỀU HƯỚNG: Tiếp tục mua sắm (Dạng viền) */
 .continue-shopping {
     display: block;
     text-align: center;
     margin-top: 15px;
-    color: #3498db;
+    padding: 10px;
+    color: #ae8569;
+    background-color: transparent;
+    border: 2px solid #ae8569;
+    border-radius: 4px;
     text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s;
 }
 
-/*.empty-cart {*/
-/*    text-align: center;*/
-/*    padding: 40px 0;*/
-/*}*/
+.continue-shopping:hover {
+    background-color: #ae8569;
+    color: white;
+}
 
-/*.empty-cart-icon {*/
-/*    font-size: 60px;*/
-/*    color: #ddd;*/
-/*    margin-bottom: 20px;*/
-/*}*/
+/* NÚT XÓA TẤT CẢ (Viền đứt khúc) */
+.clear-cart-btn {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin-top: 15px;
+    background-color: transparent;
+    color: #b86a5a;
+    border: 2px dashed #b86a5a;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.clear-cart-btn:hover {
+    background-color: #b86a5a;
+    color: white;
+}
 
 .empty-cart-message {
     margin-bottom: 20px;
     color: #777;
-}
-
-/*.shop-now-btn {*/
-/*    display: inline-block;*/
-/*    padding: 10px 20px;*/
-/*    background-color: #3498db;*/
-/*    color: white;*/
-/*    text-decoration: none;*/
-/*    border-radius: 4px;*/
-/*    transition: background-color 0.3s;*/
-/*}*/
-
-.shop-now-btn:hover {
-    background-color: #2980b9;
 }
 
 .promo-code {
@@ -231,8 +256,9 @@
     margin-top: 5px;
 }
 
+/* NÚT PHỤ: Áp dụng mã (Cùng tone với Cộng/Trừ) */
 .apply-promo {
-    background-color: #3498db;
+    background-color: #d1b39f;
     color: white;
     border: none;
     padding: 10px 15px;
@@ -240,6 +266,11 @@
     cursor: pointer;
     margin-top: 10px;
     width: 100%;
+    transition: background-color 0.3s;
+}
+
+.apply-promo:hover {
+    background-color: #ba957d;
 }
 
 .notification {
@@ -247,20 +278,10 @@
     top: 20px;
     right: 20px;
     padding: 15px 20px;
-    background-color: #2ecc71;
+    background-color: #ae8569;
     color: white;
     border-radius: 4px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     display: none;
     z-index: 1000;
-}
-
-@media (max-width: 768px) {
-    .cart-container {
-        flex-direction: column;
-    }
-
-    .cart-items, .cart-summary {
-        width: 100%;
-    }
 }

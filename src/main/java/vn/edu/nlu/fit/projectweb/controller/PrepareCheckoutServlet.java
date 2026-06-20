@@ -22,23 +22,12 @@ public class PrepareCheckoutServlet extends HttpServlet {
             response.sendRedirect(request.getContextPath() + "/ListProduct");
             return;
         }
-
         Cart cart = (Cart) cartObj;
 
         if (cart.getItems() == null || cart.getItems().isEmpty()) {
             response.sendRedirect(request.getContextPath() + "/ListProduct");
             return;
         }
-
-        // 2. TẠO CHUỖI DỮ LIỆU ĐỂ KÝ (DATA TO SIGN)
-        String orderId = "DH" + System.currentTimeMillis();
-
-        double totalPrice = cart.getTotal() + 30000;
-
-        String dataToSign = "MaDon:" + orderId + "|TongTien:" + (long)totalPrice;
-
-        request.setAttribute("dataToSign", dataToSign);
-
         request.getRequestDispatcher("/html/ttdh.jsp").forward(request, response);
     }
 }
