@@ -144,5 +144,44 @@ public class UserDao extends BaseDao {
                     }).list();
         });
     }
+    // 13. Báo mất khóa
+    public void reportLostKey(int userId) {
+        get().useHandle(handle ->
+                handle.createUpdate("UPDATE user_keys SET status = 0 WHERE user_id = :userId AND status = 1")
+                        .bind("userId", userId)
+                        .execute()
+        );
+    }
+
+    // 14. Thêm Public Key mới từ Tool
+    public void addNewPublicKey(int userId, String newPublicKey) {
+        get().useHandle(h ->
+                h.createUpdate("INSERT INTO user_keys (user_id, public_key, status) VALUES (:userId, :publicKey, 1)")
+                        .bind("userId", userId)
+                        .bind("publicKey", newPublicKey)
+                        .execute()
+        );
+    }
+
+    // 15. Kiểm tra xem User hiện tại có khóa nào đang hoạt động
+    public boolean hasActiveKey(int userId) {
+        return get().withHandle(h ->
+                h.createQuery("SELECT COUNT(*) FROM user_keys WHERE user_id = :userId AND status = 1")
+                        .bind("userId", userId)
+                        .mapTo(Integer.class)
+                        .one() > 0
+        );
+    }
+    public void updateNewKey(int userId, String newPublicKey) {
+        get().useTransaction(handle -> {
+            handle.createUpdate("UPDATE user_keys SET status = 0 WHERE user_id = :userId AND status = 1")
+                    .bind("userId", userId)
+                    .execute();
+            handle.createUpdate("INSERT INTO user_keys (user_id, public_key, status) VALUES (:userId, :publicKey, 1)")
+                    .bind("userId", userId)
+                    .bind("publicKey", newPublicKey)
+                    .execute();
+        });
+    }
 }
 

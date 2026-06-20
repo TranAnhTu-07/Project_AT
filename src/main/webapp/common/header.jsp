@@ -83,7 +83,7 @@
                                 <i class="fas fa-key"></i> Báo mất khóa
                             </a>
                             <a href="CapNhatKhoa" class="dropdown-item">
-                                <i class="fas fa-plus-circle"></i> Cập nhật / Tạo khóa mới
+                                <i class="fas fa-plus-circle"></i> Cập nhật khóa mới
                             </a>
                             <a href="Logout" class="dropdown-item" style="color: #dc3545 !important; border-top: 1px solid #eee;">
                                 <i class="fas fa-sign-out-alt"></i> Đăng xuất
