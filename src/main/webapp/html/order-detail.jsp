@@ -1,17 +1,14 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: tranc
+  Date: 6/20/2026
+  Time: 2:41 PM
+  To change this template use File | Settings | File Templates.
+--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="jakarta.tags.fmt" %>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>Chi tiet don hang</title>
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/footer.css">
-    <link rel="stylesheet" href="css/Product.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    <script src="js/search.js"></script>
-</head>
-<jsp:include page="/common/header.jsp"/>
+    <title>Chi tiết ơn hàng</title>
 </head>
 <body>
 <h1>

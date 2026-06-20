@@ -1,6 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="jakarta.tags.fmt" %>
+<p>Orders = ${orders}</p>
+<p>Size = ${orders.size()}</p>
 <html>
 <head>
   <meta charset="UTF-8">
@@ -9,10 +11,11 @@
   <link rel="stylesheet" href="css/footer.css">
   <link rel="stylesheet" href="css/Product.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/my-orders.css">
   <script src="js/search.js"></script>
 </head>
 <jsp:include page="/common/header.jsp"/>
-</head>
+
 <body>
 <table class="order-table">
 

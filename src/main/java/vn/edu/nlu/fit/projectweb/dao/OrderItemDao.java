@@ -2,6 +2,7 @@ package vn.edu.nlu.fit.projectweb.dao;
 
 import vn.edu.nlu.fit.projectweb.model.OrderDetail;
 import vn.edu.nlu.fit.projectweb.utils.DBConnection;
+import vn.edu.nlu.fit.projectweb.model.Product;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -19,9 +20,13 @@ public class OrderItemDao {
         ResultSet rs = ps.executeQuery();
 
         while (rs.next()) {
+            Product p = new Product();
+            p.setProductName(rs.getString("product_name"));
             OrderDetail item = new OrderDetail();
-            item.setProductName(rs.getString("product_name"));
-            item.setColor(rs.getString("color"));
+            item.setDetailId(rs.getInt("detail_id"));
+            item.setOrderId(rs.getInt("order_id"));
+            item.setProductId(rs.getInt("product_id"));
+            item.setProduct(p);
             item.setQuantity(rs.getInt("quantity"));
             item.setPrice(rs.getDouble("price"));
             list.add(item);
