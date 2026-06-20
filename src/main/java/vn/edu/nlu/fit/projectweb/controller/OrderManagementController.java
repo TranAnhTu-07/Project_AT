@@ -11,7 +11,7 @@ import java.util.List;
 
 @WebServlet(name = "OrderManagementController", value = "/OrderManagement")
 public class OrderManagementController extends HttpServlet {
-    private OrderDao orderDAO = new OrderDao();
+    public OrderDao orderDAO = new OrderDao();
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

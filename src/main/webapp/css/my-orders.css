@@ -1,0 +1,125 @@
+/* =========================
+   MY ORDERS PAGE
+========================= */
+
+body {
+    background: #f5f7fa;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.order-table {
+    width: 90%;
+    max-width: 1200px;
+    margin: 40px auto;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* Header */
+.order-table thead {
+    background: #1f2937;
+    color: white;
+}
+
+.order-table thead th {
+    padding: 16px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+/* Body */
+.order-table tbody td {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #e5e7eb;
+    font-size: 14px;
+}
+
+/* Hover */
+.order-table tbody tr:hover {
+    background: #f9fafb;
+    transition: 0.3s;
+}
+
+/* Order ID */
+.order-table tbody td:first-child {
+    font-weight: bold;
+    color: #2563eb;
+}
+
+/* Link xem chi tiết */
+.order-table a {
+    text-decoration: none;
+    color: white;
+    background: #2563eb;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-size: 13px;
+    transition: 0.3s;
+}
+
+.order-table a:hover {
+    background: #1d4ed8;
+}
+
+/* Tổng tiền */
+.order-table tbody td:nth-child(4) {
+    font-weight: bold;
+    color: #dc2626;
+}
+
+/* Trạng thái */
+.status-pending {
+    color: #d97706;
+    font-weight: bold;
+}
+
+.status-processing {
+    color: #2563eb;
+    font-weight: bold;
+}
+
+.status-shipping {
+    color: #7c3aed;
+    font-weight: bold;
+}
+
+.status-delivered {
+    color: #16a34a;
+    font-weight: bold;
+}
+
+/* Chữ ký */
+.signature-ok {
+    color: #16a34a;
+    font-size: 20px;
+}
+
+.signature-fail {
+    color: #dc2626;
+    font-size: 20px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .order-table {
+        width: 98%;
+        font-size: 12px;
+    }
+
+    .order-table thead th,
+    .order-table tbody td {
+        padding: 10px 5px;
+    }
+
+    .order-table a {
+        padding: 6px 10px;
+        font-size: 12px;
+    }
+}

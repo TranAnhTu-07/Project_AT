@@ -9,9 +9,11 @@ import vn.edu.nlu.fit.projectweb.dao.OrderStatusDao;
 import vn.edu.nlu.fit.projectweb.model.Orders;
 import vn.edu.nlu.fit.projectweb.model.OrderDetail;
 import vn.edu.nlu.fit.projectweb.model.OrderStatus;
+import vn.edu.nlu.fit.projectweb.model.User;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.ArrayList;
 
 @WebServlet(name = "OrderStatusController", value = "/OrderStatus")
 public class OrderStatusController extends HttpServlet {
@@ -25,12 +27,16 @@ public class OrderStatusController extends HttpServlet {
             OrderDao orderDAO = new OrderDao();
             OrderItemDao itemDAO = new OrderItemDao();
             OrderStatusDao statusDAO = new OrderStatusDao();
+            User user =
+                    (User) request.getSession().getAttribute("user");
 
-            Orders orders = orderDAO.getOrderById(orderId);
+            int userId = user.getUserId();
+
+            List<Orders> orders = orderDAO.getOrdersByUserId(userId);
             List<OrderDetail> items = itemDAO.getItemsByOrderId(orderId);
             List<OrderStatus> statuses = statusDAO.getStatusByOrderId(orderId);
 
-            request.setAttribute("order", orders);
+            request.setAttribute("orders", orders);
             request.setAttribute("items", items);
             request.setAttribute("statuses", statuses);
 
