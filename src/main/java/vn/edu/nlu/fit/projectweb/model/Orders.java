@@ -22,9 +22,18 @@ public class Orders {
     private String digitalSignature;
     private int signatureStatus;
 
+    private int userId;
+
     public Orders() {}
 
     // getter & setter
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
 
     public int getOrderId() {
         return orderId;
