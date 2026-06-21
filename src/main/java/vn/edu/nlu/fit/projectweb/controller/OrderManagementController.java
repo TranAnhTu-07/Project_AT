@@ -18,7 +18,7 @@ public class OrderManagementController extends HttpServlet {
 
         List<OrderView> orders = orderDAO.getAllOrders();
         request.setAttribute("orders", orders);
-        request.getRequestDispatcher("OrderManagement.jsp").forward(request, response);
+        request.getRequestDispatcher("/OrderManagement.jsp").forward(request, response);
     }
 
     @Override
