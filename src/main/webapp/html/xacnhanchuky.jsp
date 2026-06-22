@@ -20,7 +20,7 @@
 <jsp:include page="/common/header.jsp"/>
 
 <main class="checkout-container">
-    <form id="verifyForm" action="#" method="POST">
+    <form id="verifyForm" action="${pageContext.request.contextPath}/VerifySignature" method="POST">
         <section class="checkout-block" style="padding: 40px 30px;">
 
             <div class="page-title" style="border-bottom: none; margin-bottom: 10px;">
@@ -35,12 +35,13 @@
                 <textarea class="form-control" rows="3" readonly style="background: #f8f9fa; font-family: monospace; color: #333; font-weight: bold; cursor: text;">${dataToSign}</textarea>
             </div>
 
+            <input type="hidden" name="orderId" value="${orderId}">
             <div class="form-group" style="margin-top: 25px;">
                 <label style="color: #28a745; font-size: 1.1em;"><i class="fa-solid fa-2"></i> Dán Chữ Ký (Signature) từ Tool vào đây:</label>
                 <textarea name="signature" class="form-control" rows="5" placeholder="Dán đoạn mã chữ ký Base64 vào đây..." required style="border: 2px solid #28a745; background: #f4fdf6;"></textarea>
             </div>
 
-            <button type="button" id="confirmOrder" style="background: #28a745; margin-top: 30px; box-shadow: 0 4px 10px rgba(40, 167, 69, 0.3);">
+            <button type="submit" id="confirmOrder" style="background: #28a745; margin-top: 30px; box-shadow: 0 4px 10px rgba(40, 167, 69, 0.3);">
                 <i class="fa-solid fa-shield-check"></i> XÁC NHẬN CHỮ KÝ
             </button>
 
