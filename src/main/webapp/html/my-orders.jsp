@@ -56,17 +56,14 @@
 
           <td>
             <c:choose>
-              <c:when test="${o.orderStatus == 'Chờ xác nhận'}">
-                <span class="status-badge status-pending">Chờ xác nhận</span>
-              </c:when>
-              <c:when test="${o.orderStatus == 'Đang xử lý'}">
+              <c:when test="${o.orderStatus == '1'}">
                 <span class="status-badge status-processing">Đang xử lý</span>
               </c:when>
-              <c:when test="${o.orderStatus == 'Đang giao hàng'}">
-                <span class="status-badge status-shipping">Đang giao</span>
+              <c:when test="${o.orderStatus == '3'}">
+                <span class="status-badge status-shipping">Đã thay đổi</span>
               </c:when>
-              <c:when test="${o.orderStatus == 'Đã giao'}">
-                <span class="status-badge status-delivered">Đã giao</span>
+              <c:when test="${o.orderStatus == '2'}">
+                <span class="status-badge status-delivered">Đã ký</span>
               </c:when>
               <c:otherwise>
                 <span class="status-badge">${o.orderStatus}</span>
@@ -76,13 +73,22 @@
 
           <td>
 
-            <c:if test="${o.signatureStatus==0}">
-              ❌
-            </c:if>
+<%--            <c:if test="${o.signatureStatus==0}">--%>
+<%--              ❌--%>
+<%--            </c:if>--%>
 
-            <c:if test="${o.signatureStatus==1}">
-              ✔
-            </c:if>
+<%--            <c:if test="${o.signatureStatus==1}">--%>
+<%--              ✔--%>
+<%--            </c:if>--%>
+                <c:if test="${o.signatureStatus==0}">
+                  <i class="fa-solid fa-circle-question" style="color:#9e9e9e; font-size:2em;"></i>
+                </c:if>
+                <c:if test="${o.signatureStatus==1}">
+                  <i class="fa-solid fa-circle-check" style="color:#28a745; font-size:2em;"></i>
+                </c:if>
+                <c:if test="${o.signatureStatus==2}">
+                  <i class="fa-solid fa-circle-xmark" style="color:#e53935; font-size:2em;"></i>
+                </c:if>
 
           </td>
 
