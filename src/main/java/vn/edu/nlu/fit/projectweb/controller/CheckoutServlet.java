@@ -53,8 +53,15 @@ public class CheckoutServlet extends HttpServlet {
             response.sendRedirect("cart.jsp");
             return;
         }
+        vn.edu.nlu.fit.projectweb.model.User loginUser = (vn.edu.nlu.fit.projectweb.model.User) session.getAttribute("account");
 
         int userId = 0;
+        if (loginUser != null) {
+            userId = loginUser.getUserId();
+        } else {
+            response.sendRedirect(request.getContextPath() + "/Login");
+            return;
+        }
 
         Orders newOrder = new Orders();
         newOrder.setUserId(userId);
