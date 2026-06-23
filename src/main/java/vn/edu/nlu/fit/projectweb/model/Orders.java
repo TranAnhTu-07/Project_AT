@@ -26,7 +26,6 @@ public class Orders {
 
     public Orders() {}
 
-    // getter & setter
     public int getUserId() {
         return userId;
     }
@@ -122,4 +121,9 @@ public class Orders {
     public void setSignatureStatus(int signatureStatus) {
         this.signatureStatus = signatureStatus;
     }
+
+    private String changeDetails = "";
+
+    public String getChangeDetails() { return changeDetails; }
+    public void setChangeDetails(String changeDetails) { this.changeDetails = changeDetails; }
 }
