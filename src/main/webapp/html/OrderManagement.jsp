@@ -9,9 +9,9 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Quản lý Đơn Hàng</title>
-    <link rel="stylesheet" href="../css/OrderManagement.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/OrderManagement.css">
     <link rel="stylesheet" href="admin css2.css">
-    <link rel="stylesheet" href="../css/quanlyuser.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/quanlyuser.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>

@@ -11,6 +11,8 @@
 </head>
 <body>
 
+<jsp:include page="/common/header.jsp"/>
+
 <div class="detail-container">
 
     <h1 class="detail-title">Chi tiết đơn hàng <span>#DH${order.orderId}</span></h1>
@@ -108,9 +110,7 @@
 
 <script>
     document.getElementById("btnSignOrder").addEventListener("click", function () {
-        // TODO: gọi API/Servlet ký đơn hàng tại đây, ví dụ:
-        // fetch("${pageContext.request.contextPath}/sign-order?id=${order.orderId}", { method: "POST" })
-        console.log("Bấm Ký đơn hàng - orderId = ${order.orderId}");
+        window.location.href = "${pageContext.request.contextPath}/sign-order?orderId=${order.orderId}";
     });
 
     document.getElementById("btnCancelOrder").addEventListener("click", function () {
@@ -119,6 +119,6 @@
         console.log("Bấm Hủy đơn hàng - orderId = ${order.orderId}");
     });
 </script>
-
+<jsp:include page="/common/footer.jsp"/>
 </body>
 </html>

@@ -4,6 +4,7 @@ import vn.edu.nlu.fit.projectweb.model.OrderDetail;
 import vn.edu.nlu.fit.projectweb.model.OrderView;
 import vn.edu.nlu.fit.projectweb.model.Orders;
 import vn.edu.nlu.fit.projectweb.utils.DBConnection;
+import vn.edu.nlu.fit.projectweb.model.Product;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -123,6 +124,41 @@ public class OrderDao extends BaseDao {
         }
 
         return list;
+    }
+
+    // --- LẤY DANH SÁCH SẢN PHẨM THEO ORDER ID ---
+    public List<OrderDetail> getOrderDetailsByOrderId(int orderId) {
+        String sql = "SELECT od.detail_id, od.order_id, od.product_id, od.quantity, od.price, " +
+                "p.ProductName " +
+                "FROM order_details od " +
+                "JOIN products p ON od.product_id = p.ProductID " +
+                "WHERE od.order_id = :orderId";
+
+        try {
+            return get().withHandle(handle ->
+                    handle.createQuery(sql)
+                            .bind("orderId", orderId)
+                            .map((rs, ctx) -> {
+                                OrderDetail detail = new OrderDetail();
+                                detail.setDetailId(rs.getInt("detail_id"));
+                                detail.setOrderId(rs.getInt("order_id"));
+                                detail.setProductId(rs.getInt("product_id"));
+                                detail.setQuantity(rs.getInt("quantity"));
+                                detail.setPrice(rs.getDouble("price"));
+
+                                Product product = new Product();
+                                product.setProductName(rs.getString("ProductName"));
+                                detail.setProduct(product);
+
+                                return detail;
+                            })
+                            .list()
+            );
+        } catch (Exception e) {
+            System.out.println("LỖI getOrderDetailsByOrderId: " + e.getMessage());
+            e.printStackTrace();
+            return new ArrayList<>();
+        }
     }
 
     // --- HÀM PHỤ: map 1 dòng ResultSet thành Orders, tránh lặp code ---
