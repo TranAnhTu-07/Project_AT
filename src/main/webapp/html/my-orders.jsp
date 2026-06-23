@@ -47,7 +47,6 @@
             <a class="btn-detail" href="${pageContext.request.contextPath}/order-detail?id=${o.orderId}">
               Xem chi tiết
             </a>
-
           </td>
 
           <td>
@@ -72,24 +71,21 @@
           </td>
 
           <td>
-
-<%--            <c:if test="${o.signatureStatus==0}">--%>
-<%--              ❌--%>
-<%--            </c:if>--%>
-
-<%--            <c:if test="${o.signatureStatus==1}">--%>
-<%--              ✔--%>
-<%--            </c:if>--%>
-                <c:if test="${o.signatureStatus==0}">
-                  <i class="fa-solid fa-circle-question" style="color:#9e9e9e; font-size:2em;"></i>
-                </c:if>
-                <c:if test="${o.signatureStatus==1}">
-                  <i class="fa-solid fa-circle-check" style="color:#28a745; font-size:2em;"></i>
-                </c:if>
-                <c:if test="${o.signatureStatus==2}">
-                  <i class="fa-solid fa-circle-xmark" style="color:#e53935; font-size:2em;"></i>
-                </c:if>
-
+            <c:if test="${o.signatureStatus==0}">
+              <i class="fa-solid fa-circle-question" style="color:#9e9e9e; font-size:2em;"></i>
+            </c:if>
+            <c:if test="${o.signatureStatus==1}">
+              <i class="fa-solid fa-circle-check" style="color:#28a745; font-size:2em;"></i>
+            </c:if>
+            <c:if test="${o.signatureStatus==2}">
+              <i class="fa-solid fa-circle-xmark" style="color:#e53935; font-size:2em;"></i>
+            </c:if>
+            <c:if test="${o.signatureStatus==3}">
+              <i class="fa-solid fa-circle-xmark" style="color:#e53935; font-size:2em;"></i>
+            </c:if>
+            <c:if test="${o.signatureStatus==4}">
+              <i class="fa-solid fa-circle-xmark" style="color:#e53935; font-size:2em;"></i>
+            </c:if>
           </td>
 
         </tr>

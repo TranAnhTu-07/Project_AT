@@ -79,6 +79,9 @@
                 <li>Hệ thống chỉ chấp nhận định dạng file văn bản chứa mã khóa dạng <code>.txt</code></li>
                 <li>Tuyệt đối <strong>không tải file Private Key</strong> lên hệ thống để đảm bảo an toàn bảo mật.</li>
                 <li>Sau khi cập nhật thành công, hệ thống tự động vô hiệu hóa khóa cũ (nếu có) và bạn có thể ký số đơn hàng.</li>
+                <li>Nếu bạn chưa có cặp khóa ký số, vui lòng tải phần mền để tạo ra cặp khóa
+                    <a href="${pageContext.request.contextPath}/Download/Tool.zip" download="Tool.zip" style="color: #2900b4;font-weight: 500;">Tại đây.</a></p>
+                </li>
             </ul>
         </div>
 
