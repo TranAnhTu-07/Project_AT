@@ -22,6 +22,12 @@
       <c:when test="${isValid == true}">
         <h1 style="color:#28a745;"><i class="fa-solid fa-circle-check"></i> Chữ ký hợp lệ!</h1>
         <p>Đơn hàng <b>#${orderId}</b> đã được xác thực chữ ký số thành công.</p>
+        <a href="${pageContext.request.contextPath}/my-orders"
+           style="display:inline-block; margin-top:20px; padding:12px 30px;
+              background:#28a745; color:#fff; border-radius:6px;
+              text-decoration:none; font-weight:bold;">
+          <i class="fa-solid fa-list"></i> Xem đơn hàng
+        </a>
       </c:when>
       <c:otherwise>
         <h1 style="color:#e53935;"><i class="fa-solid fa-circle-xmark"></i> Chữ ký không hợp lệ!</h1>
